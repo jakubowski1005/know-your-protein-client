@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Menu, Icon, Dropdown } from 'semantic-ui-react'
+import { Container, Menu, Icon, Dropdown, Image } from 'semantic-ui-react'
 //import AuthService from '../../services/AuthService'
+import logo from '../../resources/images/genetic.svg'
 
 export class HeaderComponent extends Component {
     constructor() {
@@ -43,7 +44,7 @@ export class HeaderComponent extends Component {
                         active={activeItem === 'home'}
                         onClick={this.handleItemClick}
                         as={Link} to='/'
-                        ><Icon name='check square' />Done!
+                        ><Icon name='flask' /> Know your protein
                         </Menu.Item>
 
                      {!this.state.userLoggedIn && <Menu.Menu position="right" width={6}>

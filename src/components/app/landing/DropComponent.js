@@ -8,6 +8,7 @@ export class DropComponent extends Component {
         super(props)
 
         this.state = {
+            loaded: false,
             error: '',
             dataset: null
         }
@@ -37,13 +38,17 @@ export class DropComponent extends Component {
         return (
             <>
                 <Header icon>
-                <Icon name='file alternate' />
-                <Dropzone onDrop={file => this.parseToJSON(file)}>
+                {this.state.loaded ? <Icon name='check' /> : <Icon name='file alternate' />}
+                <Dropzone onDrop={file => {
+                    this.setState({loaded: true})
+                    this.parseToJSON(file)}}>
                   {({getRootProps, getInputProps}) => (
                     <section>
                       <div {...getRootProps()}>
                         <input {...getInputProps()} />
-                        <p>Drag your CSV file here or click to upload</p>
+                        {this.state.loaded ? 
+                        <p>File uploaded, click button to calculate</p> :
+                        <p>Drag your CSV file here or click to upload</p>}
                       </div>
                     </section>
                   )}
@@ -67,8 +72,8 @@ function processData(csv) {
     }
 
     for (let i = 0; i < lines.length; i++) {
-        x.push(lines[i][0])
-        y.push(lines[i][1])
+        x.push(parseFloat(lines[i][0]))
+        y.push(parseFloat(lines[i][1]))
     }
     let dataset = {
         x: x,

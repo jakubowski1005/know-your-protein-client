@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Container, Segment, Grid } from 'semantic-ui-react'
+import { Segment, Grid } from 'semantic-ui-react'
 import DropComponent from './DropComponent'
 import LoadingComponent from './LoadingComponent'
 import ResultsComponent from '../results/ResultsComponent'
+import DataProcessingService from '../../../services/DataProcessingService'
 
 export class ContentComponent extends Component {
     constructor() {
@@ -14,31 +15,30 @@ export class ContentComponent extends Component {
             data: null
         }
 
-        this.turnOnLoading = this.turnOnLoading.bind(this)
         this.retrieveResults = this.retrieveResults.bind(this)
-    }
-
-    turnOnLoading() {
-        this.setState({processing: true})
-        console.log('loading')
     }
 
     retrieveResults(dataset) {
         this.setState({processing: true})
-        console.log('api call with data: ' + dataset)
+        DataProcessingService.analyzeSpectrum(dataset)
+        .then( res => {
+            this.setState({
+                processing: false,
+                results: true,
+                data: res.data.body})
+        })
+        .catch(err => console.log(err))
     }
 
     render() {
         return (
-            <Segment placeholder style={{width: '60%', height: '300px', textAlign: 'center'}}>
-                <Grid centered>
-                <Grid.Column>
+            <Grid centered>
+            <Segment placeholder style={{width: '60%', height: '300px'}}>
                 {!this.state.processing && !this.state.results && <DropComponent process={this.retrieveResults} />}
                 {this.state.processing && <LoadingComponent />}
-                {this.state.results && <ResultsComponent />}
-                </Grid.Column>
-                </Grid>
+                {this.state.results && <ResultsComponent data={this.state.data} />}
             </Segment>
+            </Grid>
         )
     }
 }
