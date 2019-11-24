@@ -1,7 +1,6 @@
-import React, { Component, useCallback } from 'react'
+import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
-import { Segment, Header, Icon, Button, Container } from 'semantic-ui-react'
-import csvToJson from '../../../services/CSVtoJSONConverter'
+import { Header, Icon, Button } from 'semantic-ui-react'
 
 export class DropComponent extends Component {
     constructor(props) {

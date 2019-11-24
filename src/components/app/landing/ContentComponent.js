@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment, Grid } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import DropComponent from './DropComponent'
 import LoadingComponent from './LoadingComponent'
 import ResultsComponent from '../results/ResultsComponent'
@@ -32,13 +32,11 @@ export class ContentComponent extends Component {
 
     render() {
         return (
-            <Grid centered>
-            <Segment placeholder style={{width: '60%', height: '300px'}}>
+            <Segment placeholder style={{width: '60%', minHeight: '300px'}}>
                 {!this.state.processing && !this.state.results && <DropComponent process={this.retrieveResults} />}
                 {this.state.processing && <LoadingComponent />}
                 {this.state.results && <ResultsComponent data={this.state.data} />}
             </Segment>
-            </Grid>
         )
     }
 }
