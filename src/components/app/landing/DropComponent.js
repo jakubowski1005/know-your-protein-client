@@ -66,8 +66,15 @@ function processData(csv) {
     let lines = []
     let x = []
     let y = []
+
+    if(commaCounter(allTextLines[0]) > 1) {
+        allTextLines = commaToPoint(allTextLines)
+    } 
+
+    let delimeter = findDelimiter(allTextLines[0])
+
     while (allTextLines.length) {
-        lines.push(allTextLines.shift().split(','));
+        lines.push(allTextLines.shift().split(delimeter));
     }
 
     for (let i = 0; i < lines.length; i++) {
@@ -79,4 +86,40 @@ function processData(csv) {
         y: y
     }
     return dataset;
+}
+
+function findDelimiter(line) {
+    let charArr = line.split(/(?=[\s\S])/u)
+    for (let i = 0; i < charArr.length; i++) {
+        if (charArr[i] === ' ' || charArr[i] === ',' || charArr[i] === ';' || charArr[i] === '  ') return charArr[i]
+    }
+    return ','
+}
+
+function commaCounter(line) {
+    let charArr = line.split(/(?=[\s\S])/u)
+    let counter = 0
+    for (let i = 0; i < charArr.length; i++) {
+        if(charArr[i] === ',') counter++
+    }
+    return counter
+}
+
+function commaToPoint(lines) {
+    let newlines = [];
+
+    for(let i = 0; i < lines.length; i++) {
+
+        let charArr = lines[i].split(/(?=[\s\S])/u)
+        let newCharArr = [];
+
+        for(let j = 0; j < charArr.length; j++) {
+            if(charArr[j] === ',') charArr[j] = '.'
+            newCharArr.push(charArr[j])
+        }
+
+        let str = newCharArr.join('')
+        newlines.push(str)
+    }
+    return newlines
 }

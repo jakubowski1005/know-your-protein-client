@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Sticky } from 'semantic-ui-react'
 
 import HeaderComponent from './HeaderComponent'
-import FooterComponent from './FooterComponent'
+//import FooterComponent from './FooterComponent'
 
 import LoginComponent from '../auth/LoginComponent'
 import RegisterComponent from '../auth/RegisterComponent'

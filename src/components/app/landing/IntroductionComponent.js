@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment, Grid, Image, Container } from 'semantic-ui-react'
+import { Grid, Image, Container } from 'semantic-ui-react'
 import logo from '../../../resources/images/genetic.svg'
 
 export class IntroductionComponent extends Component {
