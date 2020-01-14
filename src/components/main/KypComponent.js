@@ -13,6 +13,7 @@ import MainPageComponent from '../app/MainPageComponent'
 
 export class KypComponent extends Component {
     render() {
+        const URL = '/know-your-protein-client';
         return (
             <div>
                 <Router>
@@ -21,10 +22,10 @@ export class KypComponent extends Component {
                           <HeaderComponent />
                       </Sticky>
                       <Switch>
-                        <Route path='/' exact component={MainPageComponent} />
-                        <Route path='/login' component={LoginComponent} />
-                        <Route path='/register' component={RegisterComponent} />
-                        <Route path='/logout' component={LogoutComponent} />
+                        <Route path={`${URL}/`} exact component={MainPageComponent} />
+                        <Route path={`${URL}/login`} component={LoginComponent} />
+                        <Route path={`${URL}/register`} component={RegisterComponent} />
+                        <Route path={`${URL}/logout`} component={LogoutComponent} />
                       </Switch>
                       {/* <FooterComponent /> */}
                     </>
