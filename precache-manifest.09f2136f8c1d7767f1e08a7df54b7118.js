@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0f7e39ba7977d33a481b6e7c3afcc28a",
+    "revision": "a14084a1cd8438105526d3ab0bf15dac",
     "url": "/know-your-protein-client/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/know-your-protein-client/static/css/2.623b5b2a.chunk.css"
   },
   {
-    "revision": "3c8bd6c0258bbe69331e",
+    "revision": "3088060f2f77e1eeadca",
     "url": "/know-your-protein-client/static/css/main.53a66e96.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/know-your-protein-client/static/js/2.73f0e744.chunk.js"
   },
   {
-    "revision": "3c8bd6c0258bbe69331e",
-    "url": "/know-your-protein-client/static/js/main.3a08cf9b.chunk.js"
+    "revision": "3088060f2f77e1eeadca",
+    "url": "/know-your-protein-client/static/js/main.a08fd70a.chunk.js"
   },
   {
     "revision": "5bfbbd768fe1867cb31c",
