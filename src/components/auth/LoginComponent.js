@@ -48,7 +48,7 @@ export class LoginComponent extends Component {
                         <Header as='h1'>Sign in</Header>
                         {this.state.hasFailed && <Message error header={this.state.message} />}
                         <Form>
-                            <Form.Input placeholder='Username or E-mail' name='usernameOrEmail' value={this.state.usernameOrEmail} onChange={this.handleChange} color={'red'} />
+                            <Form.Input placeholder='Username or E-mail' name='usernameOrEmail' value={this.state.usernameOrEmail} onChange={this.handleChange} color='red' />
                             <Form.Input placeholder='Password' name='password' type='password' value={this.state.password} onChange={this.handleChange} />
                             <Form.Checkbox label='Remember me' />
                             <Form.Button color='red' size='huge' onClick={this.loginClicked} style={{minWidth: '140px'}}>

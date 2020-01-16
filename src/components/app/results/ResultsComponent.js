@@ -7,7 +7,7 @@ export class ResultsComponent extends Component {
         super(props)
 
         this.state = {
-            data: this.props.data
+            data: this.props.data,
         }
 
 
@@ -20,7 +20,7 @@ export class ResultsComponent extends Component {
         const legend = legendBuilder(this.state.data)
 
         return (
-            <>
+            <div>
                 <Header as='h2' style={{padding: '10px 0 20px'}}>Results</Header>
                 <Divider />
                 <Table color='red'>
@@ -72,10 +72,10 @@ export class ResultsComponent extends Component {
                 <VictoryAxis dependentAxis
                     axisLabelComponent={<VictoryLabel dy={10} text="Absorbance [-]" />}
                 />
-                
                 </VictoryChart>
+                <div style={{maxHeight: '300px'}}>
                 <VictoryLegend
-                    x={50}
+                    x={100}
                     title="Legend"
                     centerTitle
                     orientation="horizontal"
@@ -83,7 +83,8 @@ export class ResultsComponent extends Component {
                     itemsPerRow={2}
                     style={{ border: { stroke: "black" }, title: {fontSize: 20 } }}
                     data={legend} />
-                </>
+                    </div>
+                </div>
         )
     }
 }

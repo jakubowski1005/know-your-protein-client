@@ -29,7 +29,7 @@ export class FooterComponent extends Component {
                         </List.Item>
                     </List>
                     <Divider />
-                    <p style={{paddingBottom: '14px', fontSize: '1.5rem'}}>Copyright &copy; {new Date().getFullYear()} Artur Jakubowski. All rights reserved.</p>
+                    <p style={{paddingBottom: '14px', fontSize: '1.5rem', color: 'white'}}>Copyright &copy; {new Date().getFullYear()} Artur Jakubowski. All rights reserved.</p>
                 </Container>
             </div>
         )
