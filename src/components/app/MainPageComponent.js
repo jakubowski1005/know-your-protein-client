@@ -6,7 +6,7 @@ import { Divider, Grid } from 'semantic-ui-react'
 export class MainPageComponent extends Component {
     render() {
         return (
-            <Grid centered>
+            <Grid centered style={{height: '80vh'}}>
                 <Grid.Row>
                     <IntroductionComponent />
                     <Divider />

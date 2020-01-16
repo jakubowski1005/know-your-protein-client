@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Menu, Icon, Dropdown } from 'semantic-ui-react'
+import { Menu, Icon, Dropdown } from 'semantic-ui-react'
+import { CLIENT_URL } from '../../resources/constants'
 //import AuthService from '../../services/AuthService'
 
 export class HeaderComponent extends Component {
@@ -35,14 +36,14 @@ export class HeaderComponent extends Component {
         const { activeItem } = this.state;
 
         return (
-            <Container fluid>
+            <div style={{backgroundColor: '#db2828'}}>
                  <Menu pointing secondary inverted color={'red'} size={'massive'}>
 
                         <Menu.Item
                         name='home'
                         active={activeItem === 'home'}
                         onClick={this.handleItemClick}
-                        as={Link} to='/'
+                        as={Link} to={`${CLIENT_URL}/`}
                         ><Icon name='flask' /> Know your protein
                         </Menu.Item>
 
@@ -51,14 +52,14 @@ export class HeaderComponent extends Component {
                          name='signin'
                          active={activeItem === 'signin'}
                          onClick={this.handleItemClick}
-                         as={Link} to='/login'
+                         as={Link} to={`${CLIENT_URL}/login`}
                          >Sign In
                          </Menu.Item>
                          <Menu.Item
                          name='signup'
                          active={activeItem === 'signup'}
                          onClick={this.handleItemClick}
-                         as={Link} to='/register'>Sign up
+                         as={Link} to={`${CLIENT_URL}/register`}>Sign up
                          </Menu.Item>
                      </Menu.Menu>}
 
@@ -74,11 +75,11 @@ export class HeaderComponent extends Component {
                          name='logout'
                          active={activeItem === 'logout'}
                          onClick={this.handleLogout}
-                         as={Link} to='/logout'>Logout
+                         as={Link} to={`${CLIENT_URL}/logout`}>Logout
                          </Menu.Item>
                      </Menu.Menu>}
                  </Menu>
-             </Container>
+             </div>
         )
     }
 }

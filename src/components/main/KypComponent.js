@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Sticky } from 'semantic-ui-react'
 
 import HeaderComponent from './HeaderComponent'
-//import FooterComponent from './FooterComponent'
+import FooterComponent from './FooterComponent'
 
 import LoginComponent from '../auth/LoginComponent'
 import RegisterComponent from '../auth/RegisterComponent'
 import LogoutComponent from '../auth/LogoutComponent'
+import TermsComponent from '../auth/TermsComponent'
+import ForgetPasswordComponent from '../auth/ForgetPasswordComponent'
 
 import MainPageComponent from '../app/MainPageComponent'
 
@@ -26,8 +28,10 @@ export class KypComponent extends Component {
                         <Route path={`${URL}/login`} component={LoginComponent} />
                         <Route path={`${URL}/register`} component={RegisterComponent} />
                         <Route path={`${URL}/logout`} component={LogoutComponent} />
+                        <Route path={`${URL}/terms`} component={TermsComponent} />
+                        <Route path={`${URL}/forgetpass`} component={ForgetPasswordComponent} />
                       </Switch>
-                      {/* <FooterComponent /> */}
+                      <FooterComponent />
                     </>
                 </Router>
             </div>
