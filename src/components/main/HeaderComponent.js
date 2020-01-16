@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Menu, Icon, Dropdown } from 'semantic-ui-react'
 import { CLIENT_URL } from '../../resources/constants'
-//import AuthService from '../../services/AuthService'
+import AuthService from '../../services/AuthService'
 
 export class HeaderComponent extends Component {
     constructor() {
@@ -10,27 +10,27 @@ export class HeaderComponent extends Component {
 
         this.state = {
             activeItem: 'home',
-            userLoggedIn: false
+            userLoggedIn: this.isUserLoggedIn()
         }
 
         this.handleItemClick = this.handleItemClick.bind(this)
-        // this.handleLogout = this.handleLogout.bind(this)
-        // this.isUserLoggedIn = this.isUserLoggedIn.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
+        this.isUserLoggedIn = this.isUserLoggedIn.bind(this)
     }
 
     handleItemClick(event, {name}) {
         this.setState({activeItem: name})
     }
 
-    // handleLogout(event) {
-    //     this.setState({activeItem: 'home', userLoggedIn: false})
-    //     AuthService.logout()
-    //     return <Redirect to='/logout' />
-    // }
+    handleLogout(event) {
+        this.setState({activeItem: 'home', userLoggedIn: false})
+        AuthService.logout()
+        return <Redirect to='/know-your-protein-client/logout' />
+    }
 
-    // isUserLoggedIn() {
-    //     return AuthService.isUserLoggedIn();
-    // }
+    isUserLoggedIn() {
+        return AuthService.isUserLoggedIn();
+    }
 
     render() {
         const { activeItem } = this.state;

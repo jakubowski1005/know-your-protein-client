@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Segment, Form, Loader, Header, Icon, Message } from 'semantic-ui-react'
-
+import AuthService from '../../services/AuthService'
 
 export class RegisterComponent extends Component {
     constructor() {
@@ -39,24 +39,22 @@ export class RegisterComponent extends Component {
             return;
         }
 
-        console.log(`Register user: {${this.state.username}, ${this.state.email}, ${this.state.password}}`)
-
-        // AuthService.registerUser(this.state.username, this.state.email, this.state.password)
-        //     .then( () => {
-        //         this.setState({
-        //             username: this.state.username,
-        //             email: this.state.email,
-        //             password: this.state.password
-        //         })
-        //         this.props.history.push('/login')
-        //     })
-        //     .catch( (err) => {
-        //         console.log(err)
-        //         this.setState({
-        //             errorMessage: 'Please input correct values.',
-        //             loading: false
-        //         })
-        //     })
+        AuthService.registerUser(this.state.username, this.state.email, this.state.password)
+            .then( () => {
+                this.setState({
+                    username: this.state.username,
+                    email: this.state.email,
+                    password: this.state.password
+                })
+                this.props.history.push('/login')
+            })
+            .catch( (err) => {
+                console.log(err)
+                this.setState({
+                    errorMessage: 'Please input correct values.',
+                    loading: false
+                })
+            })
     }
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value })

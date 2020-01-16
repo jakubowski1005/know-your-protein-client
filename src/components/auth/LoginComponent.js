@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Grid, Segment, Form, Loader, Header, Icon, Message } from 'semantic-ui-react'
+import AuthService from '../../services/AuthService'
 
 export class LoginComponent extends Component {
         constructor() {
@@ -26,16 +27,14 @@ export class LoginComponent extends Component {
             return
         }
 
-        console.log(`User {username: ${this.state.usernameOrEmail} ,password: ${this.state.password} has been logged.}`)
-
-        // AuthService.loginUser(this.state.usernameOrEmail, this.state.password)
-        //     .then( (res) => {
-        //         AuthService.registerSuccessfulLoginForJwt(this.state.usernameOrEmail, res.data.accessToken);
-        //         window.location.assign('/');
-        //     })
-        //     .catch( (err) => {
-        //         this.setState({hasFailed: true, message: 'Invalid credentials', loading: false})
-        //     })
+        AuthService.loginUser(this.state.usernameOrEmail, this.state.password)
+            .then( (res) => {
+                AuthService.registerSuccessfulLoginForJwt(this.state.usernameOrEmail, res.data.accessToken);
+                window.location.assign('/');
+            })
+            .catch( (err) => {
+                this.setState({hasFailed: true, message: 'Invalid credentials', loading: false})
+            })
     }
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value })
