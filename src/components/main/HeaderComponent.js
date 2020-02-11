@@ -18,11 +18,11 @@ export class HeaderComponent extends Component {
         this.isUserLoggedIn = this.isUserLoggedIn.bind(this)
     }
 
-    handleItemClick(event, {name}) {
+    handleItemClick({name}) {
         this.setState({activeItem: name})
     }
 
-    handleLogout(event) {
+    handleLogout() {
         this.setState({activeItem: 'home', userLoggedIn: false})
         AuthService.logout()
         return <Redirect to='/know-your-protein-client/logout' />
