@@ -2,7 +2,7 @@
 
 ***Know your protein*** is web application that allows secondary structure analysis of proteins based on their infrared spectras.
 
-*This repository is responsible for client-side part of application. Server-side part of the app is available [here](https://github.com/jakubowski1005/know-your-protein-api).*
+*This repository contains client-side part of application. Server-side part of the app is available [here](https://github.com/jakubowski1005/know-your-protein-api).*
 
 
 ## Table of content
@@ -14,18 +14,18 @@
 
 ## Description
 
-This project is my engineer's diploma project. The application would allow user to get content of specific secondary protein structures like alpha-helix or beta-sheet. Data would be calculated from Fourier Transform Infrared Spectroscopy results. Received data could be save in the database or save as PDF document.
+This project is my engineers diploma project. The application allows user to get proportions of specific secondary protein structures like alpha-helix or beta-sheet. Data are calculated by analysing results of Fourier Transform Infrared Spectroscopy. Received data can be saved in the database or can be downloaded as PDF document.
 
-The data would multistage processed:
-- cut out important bands,
+Data analysis stages:
+- cutting out the component band,
 - smoothing and filtration,
 - numerical differentiation,
-- find peeks,
-- fit structures,
+- peak detection,
+- structures fitting,
 - deconvolution,
-- numerical integral
+- numerical integration
 
-Client-side part of application would be responsible for CSV file parsing, data visualization and downloadiing/saving results.
+Client-side application is responsible for parsing CSV files, data visualization and downloading/saving results.
 
 ## Technologies, tools and libraries ##
 
